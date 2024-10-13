@@ -1,0 +1,55 @@
+# Reading pref.tcl
+# do ADDER_run_msim_gate_verilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work gate_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+. {ADDER.vo}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:55:40 on Oct 10,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+." ADDER.vo 
+# -- Compiling module and_2in
+# 
+# Top level modules:
+# 	and_2in
+# End time: 20:55:40 on Oct 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+E:/Quartus\ Projects {E:/Quartus Projects/and_2in_test.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 20:55:40 on Oct 10,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+E:/Quartus Projects" E:/Quartus Projects/and_2in_test.v 
+# -- Compiling module and_2in_test
+# 
+# Top level modules:
+# 	and_2in_test
+# End time: 20:55:40 on Oct 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L altera_lnsim_ver -L cyclonev_ver -L lpm_ver -L sgate_ver -L cyclonev_hssi_ver -L altera_mf_ver -L cyclonev_pcie_hip_ver -L gate_work -L work -voptargs="+acc"  and_2in_test
+# vsim -t 1ps -L altera_ver -L altera_lnsim_ver -L cyclonev_ver -L lpm_ver -L sgate_ver -L cyclonev_hssi_ver -L altera_mf_ver -L cyclonev_pcie_hip_ver -L gate_work -L work -voptargs=""+acc"" and_2in_test 
+# Start time: 20:55:40 on Oct 10,2024
+# Loading work.and_2in_test
+# Loading work.and_2in
+# Loading cyclonev_ver.cyclonev_io_obuf
+# Loading cyclonev_ver.cyclonev_io_ibuf
+# Loading cyclonev_ver.cyclonev_lcell_comb
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Note: $finish    : E:/Quartus Projects/and_2in_test.v(20)
+#    Time: 100 ns  Iteration: 0  Instance: /and_2in_test
+# 1
+# Break in Module and_2in_test at E:/Quartus Projects/and_2in_test.v line 20
+# End time: 23:04:54 on Oct 10,2024, Elapsed time: 2:09:14
+# Errors: 0, Warnings: 0

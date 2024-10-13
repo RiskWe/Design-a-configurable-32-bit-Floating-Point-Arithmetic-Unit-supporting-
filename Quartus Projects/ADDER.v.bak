@@ -1,0 +1,6 @@
+module and_2in(A,B,Y);
+input A,B;
+output Y;
+wire Y;
+assign Y=A&B;
+endmodule

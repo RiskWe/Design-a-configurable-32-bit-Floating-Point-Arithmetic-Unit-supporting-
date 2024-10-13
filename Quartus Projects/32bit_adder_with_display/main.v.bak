@@ -1,0 +1,57 @@
+module main(
+    input [15:0] SW,  // 16-bit switches for input
+    input KEY,        // Enter button (active low)
+    input reset,
+    input clk,
+    output [7:0] lcd_data,  // LCD data output
+    output lcd_enable,      // LCD enable signal
+    output lcd_rs           // LCD register select
+);
+
+    reg [31:0] a, b;  // 32-bit inputs a and b
+    reg [1:0] step;   // Track input stage (step 0 for 'a', step 1 for 'b')
+    wire ready;
+
+    // Instantiate the floating-point adder module
+    adder_float adder (
+        .a(a),
+        .b(b),
+        .result(result)
+    );
+
+    // Instantiate the binary display module for the 16-bit binary display
+    display_16bit_binary binary_display (
+        .num(SW),        // Display 16-bit number from switches
+        .clk(clk),
+        .reset(reset),
+        .lcd_data(lcd_data),
+        .lcd_enable(lcd_enable),
+        .lcd_rs(lcd_rs)
+    );
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            step <= 2'd0;
+        end else if (~KEY) begin  // On button press (KEY is active-low)
+            case (step)
+                2'd0: begin
+                    a[31:16] <= SW; // Store the first 16 bits of input a
+                    step <= 2'd1;
+                end
+                2'd1: begin
+                    a[15:0] <= SW;  // Store the second 16 bits of input a
+                    step <= 2'd2;
+                end
+                2'd2: begin
+                    b[31:16] <= SW; // Store the first 16 bits of input b
+                    step <= 2'd3;
+                end
+                2'd3: begin
+                    b[15:0] <= SW;  // Store the second 16 bits of input b
+                    step <= 2'd0;   // Complete input process
+                end
+            endcase
+        end
+    end
+
+endmodule

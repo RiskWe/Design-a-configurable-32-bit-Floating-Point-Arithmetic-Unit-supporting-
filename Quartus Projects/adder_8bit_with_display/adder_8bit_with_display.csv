@@ -1,0 +1,54 @@
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# File: E:\Quartus Projects\adder_8bit_with_display\adder_8bit_with_display.csv
+# Generated on: Sun Oct 13 20:17:24 2024
+
+# Note: The column header names should not be changed if you wish to import this .csv file into the Quartus Prime software.
+
+To,Direction,Location,I/O Bank,VREF Group,Fitter Location,I/O Standard,Reserved,Current Strength,Slew Rate,Differential Pair,Strict Preservation
+a[7],Input,PIN_AB28,5,B5_N1,PIN_AD7,,,,,,
+a[6],Input,PIN_AC28,5,B5_N2,PIN_AE6,,,,,,
+a[5],Input,PIN_AC27,5,B5_N2,PIN_AB9,,,,,,
+a[4],Input,PIN_AD27,5,B5_N2,PIN_AG6,,,,,,
+a[3],Input,PIN_AB27,5,B5_N1,PIN_AC7,,,,,,
+a[2],Input,PIN_AC26,5,B5_N2,PIN_AD8,,,,,,
+a[1],Input,PIN_AD26,5,B5_N2,PIN_AF5,,,,,,
+a[0],Input,PIN_AB26,5,B5_N1,PIN_AD5,,,,,,
+b[7],Input,PIN_AC25,5,B5_N2,PIN_AB8,,,,,,
+b[6],Input,PIN_AB25,5,B5_N1,PIN_Y10,,,,,,
+b[5],Input,PIN_AC24,5,B5_N2,PIN_AC4,,,,,,
+b[4],Input,PIN_AB24,5,B5_N2,PIN_AB6,,,,,,
+b[3],Input,PIN_AB23,5,B5_N2,PIN_AE5,,,,,,
+b[2],Input,PIN_AA24,5,B5_N2,PIN_AH4,,,,,,
+b[1],Input,PIN_AA23,5,B5_N2,PIN_AG3,,,,,,
+b[0],Input,PIN_AA22,5,B5_N2,PIN_AB5,,,,,,
+cin,Input,PIN_Y23,5,B5_N2,PIN_AF3,,,,,,
+cout,Output,PIN_G19,7,B7_N2,PIN_AD4,,,,,,
+hex0[6],Output,PIN_H22,6,B6_N0,PIN_L7,,,,,,
+hex0[5],Output,PIN_J22,6,B6_N0,PIN_L6,,,,,,
+hex0[4],Output,PIN_L25,6,B6_N1,PIN_M5,,,,,,
+hex0[3],Output,PIN_L26,6,B6_N1,PIN_K8,,,,,,
+hex0[2],Output,PIN_E17,7,B7_N2,PIN_L8,,,,,,
+hex0[1],Output,PIN_F22,7,B7_N0,PIN_K7,,,,,,
+hex0[0],Output,PIN_G18,7,B7_N2,PIN_J7,,,,,,
+hex1[6],Output,PIN_U24,5,B5_N0,PIN_AE4,,,,,,
+hex1[5],Output,PIN_U23,5,B5_N1,PIN_AF4,,,,,,
+hex1[4],Output,PIN_W25,5,B5_N1,PIN_AC5,,,,,,
+hex1[3],Output,PIN_W22,5,B5_N0,PIN_AH3,,,,,,
+hex1[2],Output,PIN_W21,5,B5_N1,PIN_AH6,,,,,,
+hex1[1],Output,PIN_Y22,5,B5_N0,PIN_AG4,,,,,,
+hex1[0],Output,PIN_M24,6,B6_N2,PIN_AF6,,,,,,

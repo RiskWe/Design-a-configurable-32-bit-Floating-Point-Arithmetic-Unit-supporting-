@@ -1,0 +1,72 @@
+module display_16bit_binary (
+    input [15:0] num,  // 16-bit input number
+    input clk,         // Clock signal
+    input reset,       // Reset signal
+    output [7:0] lcd_data,  // Data sent to LCD (8-bit ASCII)
+    output reg lcd_enable,  // Enable signal for LCD
+    output reg lcd_rs       // Register Select signal for LCD (0: command, 1: data)
+);
+
+    reg [7:0] binary_string [0:15]; // Memory to store the binary string
+    reg [3:0] bit_idx;  // To track which bit we are processing
+    reg [7:0] lcd_memory [0:15]; // Memory to store binary string for LCD
+    reg [3:0] lcd_index;  // LCD index to output each character
+    reg send_data;  // Signal to trigger sending data to LCD
+
+    // Convert the 16-bit binary number into a binary string
+    always @(*) begin
+        binary_string[15] = (num[15] == 1'b0) ? 8'h30 : 8'h31; // '0' or '1'
+        binary_string[14] = (num[14] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[13] = (num[13] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[12] = (num[12] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[11] = (num[11] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[10] = (num[10] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[9]  = (num[9] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[8]  = (num[8] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[7]  = (num[7] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[6]  = (num[6] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[5]  = (num[5] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[4]  = (num[4] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[3]  = (num[3] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[2]  = (num[2] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[1]  = (num[1] == 1'b0) ? 8'h30 : 8'h31;
+        binary_string[0]  = (num[0] == 1'b0) ? 8'h30 : 8'h31;
+    end
+
+    // State machine to display the binary string on the LCD
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            bit_idx <= 4'd0;
+            lcd_index <= 4'd0;
+            send_data <= 1'b0;
+            lcd_enable <= 1'b0;
+            lcd_rs <= 1'b0;
+        end else begin
+            // Store each binary digit in lcd_memory
+            lcd_memory[bit_idx] <= binary_string[bit_idx];
+            
+            if (bit_idx < 4'd15) begin
+                bit_idx <= bit_idx + 4'd1;
+            end else begin
+                bit_idx <= 4'd0;
+                send_data <= 1'b1;  // Ready to send data to LCD
+            end
+        end
+    end
+
+    // Send the binary string to the LCD
+    always @(posedge clk) begin
+        if (send_data) begin
+            lcd_rs <= 1'b1;  // Set to data mode
+            lcd_data <= lcd_memory[lcd_index]; // Send each binary character to LCD
+            lcd_enable <= 1'b1; // Enable LCD to receive data
+            if (lcd_index < 4'd15) begin
+                lcd_index <= lcd_index + 4'd1;
+            end else begin
+                lcd_index <= 4'd0;
+                send_data <= 1'b0;  // Data sending complete
+                lcd_enable <= 1'b0;
+            end
+        end
+    end
+endmodule

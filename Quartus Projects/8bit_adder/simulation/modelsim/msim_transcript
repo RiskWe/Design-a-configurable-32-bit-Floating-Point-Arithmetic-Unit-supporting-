@@ -1,0 +1,24 @@
+# Reading pref.tcl
+# do 8bit_adder_run_msim_gate_verilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work gate_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+. {8bit_adder.vo}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 14:38:49 on Oct 13,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+." 8bit_adder.vo 
+# -- Compiling module adder_8bit
+# -- Compiling module hard_block
+# 
+# Top level modules:
+# 	adder_8bit
+# End time: 14:38:49 on Oct 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
